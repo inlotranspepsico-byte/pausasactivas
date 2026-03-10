@@ -1,3 +1,4 @@
+
 let checkingInterval;
 let currentOverlayTimeout = null;
 let activeFile = null;
@@ -101,7 +102,7 @@ function showBirthdayMessage(nombre, duracion) {
     const dynamicContent = document.getElementById("dynamic-content");
     const birthdayText = document.getElementById("birthday-text");
     
-    dynamicContent.innerHTML = `<img src="/static/avisos/cumpleanos.png" alt="Feliz Cumpleaños" class="birthday-background-image">`;
+    dynamicContent.innerHTML = `<img src="static/avisos/cumpleanos.png" alt="Feliz Cumpleaños" class="birthday-background-image">`;
     dynamicContent.style.display = 'block';
     
     birthdayText.innerHTML = `${nombre}`;
@@ -287,8 +288,8 @@ async function checkEstado() {
     const timestamp = Date.now();
     
     const [cumpleResponse, horarioResponse] = await Promise.all([
-      fetch(`/data/cumpleanos.json?t=${timestamp}`),
-      fetch(`/data/horarios.json?t=${timestamp}`)
+      fetch(`data/cumpleanos.json?t=${timestamp}`),
+      fetch(`data/horarios.json?t=${timestamp}`)
     ]);
 
     if (!cumpleResponse.ok || !horarioResponse.ok) {
@@ -461,3 +462,5 @@ function handleStartSound() {
 }
 
 window.addEventListener('load', initializeApplication);
+
+
